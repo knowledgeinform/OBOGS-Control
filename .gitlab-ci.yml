@@ -1,0 +1,42 @@
+# This file is a template, and might need editing before it works on your project.
+# Official framework image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/node/tags/
+#
+
+image: node:jessie
+#
+# before_script:
+#   - npm --version
+
+# Pick zero or more services to be used on all builds.
+# Only needed when using a docker container to run your tests in.
+# Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-a-service
+
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - test
+  # - deploy
+
+runTestCases:
+  tags:
+    - obogs-control
+  stage: test
+  script:
+    - npm install
+    - npm test
+
+# Currently does not work because electron cert signed by unknown authority
+# buildDists:
+#   tags:
+#     - fruitfly
+#   stage: deploy
+#   script:
+#     - cd gcs/src/gui
+#     - yarn install
+#     - yarn config set strict-ssl false --global
+#     - yarn dist

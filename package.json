@@ -1,0 +1,76 @@
+{
+  "name": "control-system",
+  "description": "Instrumentation and Control System for a lab",
+  "version": "0.0.0",
+  "author": "Jonathan Jones",
+  "bin": {
+    "control-system": "./bin/run"
+  },
+  "bugs": "https://github.com/jonesjp1/N/A/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "@serialport/parser-inter-byte-timeout": "^10.5.0",
+    "@serialport/parser-readline": "^11.0.0",
+    "bindings": "^1.5.0",
+    "chai-http": "^4.3.0",
+    "cors": "^2.8.5",
+    "crc": "^3.8.0",
+    "express": "^4.17.1",
+    "fft.js": "^4.0.4",
+    "flatpickr": "^4.6.3",
+    "influx": "^5.5.1",
+    "isodate": "^0.1.4",
+    "modbus-serial": "^8.0.1",
+    "mongodb": "^3.5.9",
+    "serialport": "^11.0.0",
+    "streamsaver": "^2.0.3",
+    "superagent": "^5.2.2",
+    "telnet-client": "^1.4.5",
+    "usb": "^2.4.3",
+    "web-streams-polyfill": "^2.1.0"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/test": "^1",
+    "chai": "^4",
+    "eslint": "^5.13",
+    "eslint-config-oclif": "^3.1",
+    "globby": "^10",
+    "mocha": "^9.1.0",
+    "nyc": "^14"
+  },
+  "optionalDependencies": {
+    "@qlc/uldaq": "^1.0.17"
+  },
+  "engines": {
+    "node": ">=9.9.0"
+  },
+  "files": [
+    "/bin",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/src"
+  ],
+  "homepage": "https://github.com/jonesjp1/N/A",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "UNLICENSED",
+  "main": "src/index.js",
+  "oclif": {
+    "commands": "./src/commands",
+    "bin": "control-system",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "jonesjp1/N/A",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "oclif-dev manifest && oclif-dev readme",
+    "test": "nyc mocha --forbid-only --exit \"test/**/*.test.js\"",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}
